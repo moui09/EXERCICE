@@ -1,0 +1,75 @@
+//Création de la classe BankAccount
+public class BankAccount {
+    private String account;
+    private double balance;
+
+    public BankAccount(String account, double balance) {
+        this.account = account;
+        this.balance = balance;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+//Création de la classe CheckingAccount 
+public class CheckingAccount extends BankAccount {
+    private double limit;
+
+    public CheckingAccount(String account, double balance, double limit) {
+        super(account, balance);
+        this.limit = limit;
+    }
+
+    public double getLimit() {
+        return limit;
+    }
+
+    public void setLimit(double limit) {
+        this.limit = limit;
+    }
+}
+public class SavingsAccount extends BankAccount {
+    public SavingsAccount(String account, double balance) {
+        super(account, balance);
+    }
+}
+public class COD extends BankAccount {
+    public COD(String account, double balance) {
+        super(account, balance);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        // Création d'instances de chaque classe enfant
+        CheckingAccount checking = new CheckingAccount("C001", 1000.0, 500.0);
+        SavingsAccount savings = new SavingsAccount("S001", 5000.0);
+        COD cod = new COD("CD001", 10000.0);
+
+        // Accès aux attributs account et balance et affichage
+        System.out.println("Checking Account:");
+        System.out.println("Account: " + checking.getAccount());
+        System.out.println("Balance: " + checking.getBalance());
+        System.out.println("Limit: " + checking.getLimit());
+
+        System.out.println("\nSavings Account:");
+        System.out.println("Account: " + savings.getAccount());
+        System.out.println("Balance: " + savings.getBalance());
+
+        System.out.println("\nCOD Account:");
+        System.out.println("Account: " + cod.getAccount());
+        System.out.println("Balance: " + cod.getBalance());
+    }
+}
